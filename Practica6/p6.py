@@ -68,14 +68,10 @@ def ambos_son_0(numero1: float, numero2: float) -> bool:
     return numero1 == 0 and numero2 == 0
 
 # 3)
-def es_nombre_largo(nombre: str) -> bool:   # str es string ñaña
-    longitud_nombre: int = len(nombre)   # len es length
-    resultado: bool
-    if longitud_nombre <= 8 and longitud_nombre >= 3:
-        resultado = True 
-    else:
-        resultado = False
-    return resultado
+def es_nombre_largo(nombre: str) -> bool:
+    if 3 <= len(nombre) <= 8:
+        return True
+    return False
 
 # otras opciones
 
