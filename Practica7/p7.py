@@ -10,6 +10,7 @@ def pertenece(s: list[int], e: int) -> bool:
 
 def pertenece2(s: list[int], e: int)-> bool:
     longitud = len(s) - 1
+
     while(longitud >= 0):
         if(s[longitud] == e):
             return True
@@ -42,13 +43,19 @@ print(divide_a_todos([7,9,13], 2))
 def suma_total(s: list[int]) -> int:
     total: int = 0   # la suma empieza en el 0, y despues voy sumando los valores de la lista
     indiceActual: int = 0
-    longitud: int = len(s)
 
-    while(indiceActual < longitud):
+    while(indiceActual < len(s)):
         valorActual: int = s[indiceActual]
-        total = total + valorActual
+        total += valorActual
         indiceActual += 1   # me muevo un lugar en la lista
     return total
+
+# otra opcion:
+# def suma_total(s: list[int]) -> int:
+#     total: int = 0
+#     for i in range(0, len(s)):
+#         total += s[i]
+#     return total
 
 print(suma_total([1,2,3]))
 
@@ -58,10 +65,9 @@ def ordenados(s: list[int]) -> bool:
     indice_menor = indice_mayor - 1
 
     while(indice_menor >= 0):
-        if s[indice_menor] < s[indice_mayor]:
+        if s[indice_menor] < s[indice_mayor]:   # se recorre la lista de atras hacia adelante
             return True
-        else:
-            return False
+        return False
 
 print(ordenados([2,3,4]))
 print(ordenados([2,4,3]))
@@ -79,12 +85,12 @@ def longitudes(s: list[str]) -> bool:
 # 6)
 def palindromos(palabra: str) -> bool:
     res: bool = True   # el resultado va a ser inicialmente true
-    i: int = 0   # i es el indice
+    indice: int = 0
     
-    while i < len(palabra):
-        if palabra[i] != palabra[len(palabra) - 1 - i]:
+    while indice < len(palabra):
+        if palabra[indice] != palabra[len(palabra) - 1 - indice]:
             return False
-        i += 1
+        indice += 1
     return res
 
 print(palindromos("hannah"))
@@ -121,35 +127,32 @@ def fortaleza(contraseña: str) -> str:
         return "AMARILLA"
 
 # 8)
-def movimientos_bancarios(movimientos: list) -> int:
+def movimientos_bancarios(historial: list[(str, int)]) -> int:
     saldo: int = 0
-    for i in movimientos:
+    
+    for i in historial:
         if i[0] == "I":
-            saldo += i[-1]
+            saldo += i[1]
         elif i[0] == "R":
-            saldo -= i[-1]
+            saldo -= i[1]
     return saldo
 
-print(movimientos_bancarios([("I", 200), ("I", 100)]))
-print(movimientos_bancarios([("I", 200), ("R", 100)]))
-print(movimientos_bancarios([("I", 300), ("R", 500), ("I",1000)]))
-
 # 9)
-def vocales(palabra: int) -> bool:
-    vocales: list[str] = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"]
+def vocales_distintas(palabra: str) -> bool:   # la funcion no indica realmente si las 3 vocales de lista_vocales son distintas
+    vocales: list[str] = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
+    cantidad_de_vocales: int = 0
+    lista_vocales: list[str] = []
     
-    if pertenece(vocales, palabra):
-        return True
-    return False
-
-def recorrer(palabra: str) -> bool:
-    vocales_totales: int = 0
     for letra in palabra:
-        if vocales(letra):
-            vocales_totales += 1
-    if vocales_totales >= 3:
+        if letra in vocales:
+            cantidad_de_vocales += 1
+            lista_vocales.append(letra)
+        
+    if cantidad_de_vocales < 3:
+        return False
+    
+    elif cantidad_de_vocales >= 3:
         return True
-    return False
 
 # EJERCICIO 2
 # 1)
@@ -195,35 +198,38 @@ def reemplaza_vocales(palabra: str) -> str:
             palabra = palabra.replace(i, "_")
     return palabra
 
-
 # 5)
-def dar_vuelta_str(palabra: str) -> str:
+def dar_vuelta_str2(palabra: str) -> str:
     palabra_invertida: str = ""
-    indice: int = 0
+    i: int = 0
 
-    while indice < len(palabra):
-        palabra_invertida = palabra[indice] + palabra_invertida
-        indice += 1
+    while i < len(palabra):
+        letra = palabra[len(palabra) - 1 - i]
+        palabra_invertida += letra
+        i += 1
     return palabra_invertida
 
 # 6)
 def pertenece_mas_de_una_vez(palabra: str, letra: str) -> bool:
-    if palabra.count(letra) > 1:
+    repeticiones: int = 0
+
+    for i in range(0, len(palabra)):
+        if letra == palabra[i]:
+            repeticiones += 1
+    
+    if repeticiones > 1:
         return True
     return False
-
-print(pertenece_mas_de_una_vez("agustina", "a"))
-print(pertenece_mas_de_una_vez("rodrigo", "a"))
 
 def eliminar_repetidos(palabra: str) -> str:
     palabra_sin_repetidos: str = ""
     indice: int = 0
 
     while indice < len(palabra):
-        if pertenece_mas_de_una_vez(palabra, palabra[indice]) == True:
+        if pertenece_mas_de_una_vez(palabra, palabra[indice]):
             palabra_sin_repetidos = palabra_sin_repetidos + ""
             indice += 1
-        elif pertenece_mas_de_una_vez(palabra, palabra[indice]) == False:
+        else:
             palabra_sin_repetidos = palabra_sin_repetidos + palabra[indice]
             indice += 1
     return palabra_sin_repetidos
@@ -232,15 +238,12 @@ def eliminar_repetidos(palabra: str) -> str:
 # hago una funcion que indique si todas las notas de la lista estan aprobadas
 def notas_aprobadas(notas: list[int]) -> bool:
     indice: int = 0
-    if notas[indice] >= 4:
-        indice += 1
-        return True
-    else:
-        return False
 
-print(notas_aprobadas([4,5,6]))
-print(notas_aprobadas([1,2,3]))
-print(notas_aprobadas([1,2,4,5]))
+    while indice < len(notas):
+        if notas[indice] >= 4:
+            indice += 1
+            return True
+        return False
 
 # hago una funcion que sume la cantidad de notas de la lista
 def notas_totales(notas: list[int]) -> bool:
@@ -253,10 +256,6 @@ def notas_totales(notas: list[int]) -> bool:
             indice += 1
     return cantidad_de_notas
 
-print(notas_totales([2]))
-print(notas_totales([2,3]))
-print(notas_totales([1,2,3,7,1,2,6]))
-
 # hago una funcion que me indique el promedio de notas de la lista
 def promedio(notas: list[int]) -> float:
     indice: int = 0
@@ -266,9 +265,6 @@ def promedio(notas: list[int]) -> float:
         suma_total_notas += notas[indice]
         indice += 1
     return (suma_total_notas/notas_totales(notas))
-
-print(promedio([1,2,3]))
-print(promedio([4,5,8,9,10,4]))
 
 def aprobado(notas: list[int]) -> int:
     if notas_aprobadas(notas) and promedio(notas) >= 7:
@@ -317,6 +313,7 @@ def monedero_electronico() -> None:
 
 print(monedero_electronico())
 
+# 3)
 def siete_y_medio() -> None:
     suma_numeros = 0
     numero_aleatorio = ""
@@ -350,3 +347,83 @@ def siete_y_medio() -> None:
     return("Las cartas que te tocaron fueron: "+str(historial)+".")      
 
 print(siete_y_medio())
+
+# EJERICIO 5
+
+# 1)
+def pertenece (e: int, l: list[int]) -> bool:
+    for i in range(len(l)):
+        if e == l[i]:
+            return True
+    return False
+
+def pertenece_a_cada_uno_version_1(s: list[int], e: int, res: list[bool]) -> None:
+    res.clear()
+    for i in range(len(s)):
+        res.append(pertenece(e, s[i]))
+    return res
+
+print(pertenece_a_cada_uno_version_1([[4,5,6], [7,8,10], [4,4,4]], 4, [True, False, True]))
+
+# 2)
+def pertenece (e: int, l: list[int]) -> bool:
+    for i in range(len(l)):
+        if e == l[i]:
+            return True
+    return False 
+
+def pertenece2 (e: int, l: list[int]) -> bool:   # otra forma de hacer el pertenece 
+    for elem in l:
+        if e == elem:
+            return True
+
+def pertenece_a_cada_uno_version_2(s: list[list[int]], e: int, res: list[bool]) -> None:
+    res.clear()
+    # respuesta_parcial = False
+    # for i in range(len(s)):
+    #     if pertenece (e, s[i]):
+    #         respuesta_parcial = pertenece(e, s)
+    #     else:
+    #         respuesta_parcial = False
+    #     res.append(respuesta_parcial)
+    for i in range(len(s)):
+        res.append(pertenece(e, s[i]))
+    return res
+
+res = [False, True, False]
+s = [[1, 2, 3], [2, 3, 4], [1]]
+e = 4
+print(pertenece_a_cada_uno_version_2(s, e, res))
+
+# 3)
+def es_matriz(s: list[list[int]]) -> bool:
+    indice: int = 0
+
+    while indice < len(s):
+        if len(s[0]) != len(s[indice]):
+            return False
+        else:
+            indice += 1
+    return True
+
+# 4)
+def filas_ordenadas(m: list[int], res: list[bool]) -> None: 
+    res: list[bool] = []
+    indice = 0
+
+    while indice < len(m):
+        res.append(ordenados(m[indice]))
+        indice += 1
+    return res
+
+m = [[1,2,3],[4,5,6],[7,8,9],[1,2,3]]
+res = [True, True, True]
+print(filas_ordenadas(m, res))
+
+a = [[3,2,1], [1,2,3], [4,5,6], [7,8,9]]
+res = [False, True, True, True]
+print(filas_ordenadas(a, res))
+
+z = [[1,2], [2,3], [3,4], [2,1]]
+res = []
+print(filas_ordenadas(z, res))
