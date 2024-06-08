@@ -115,7 +115,7 @@ def es_peso_util(peso: float) -> bool:
 def sirve_pino(altura: float) -> bool:
     peso_max = 1000
     peso_min = 400
-    return peso_pino(altura) <= peso_max and peso_pino(altura) >= peso_min
+    return peso_min <= peso_pino(altura) <= peso_max
 
 print(sirve_pino(5))
 print(sirve_pino(2))
@@ -133,8 +133,7 @@ print(sirve_pino1(101))
 def devolver_el_doble_si_es_par(numero: int) -> int:
     if numero % 2 == 0:
         return numero * 2
-    else: 
-        return numero
+    return numero
 
 # 2)
 def devolver_valor_si_es_par_sino_el_que_sigue(numero: int)-> int:
@@ -147,10 +146,9 @@ def devolver_valor_si_es_par_sino_el_que_sigue(numero: int)-> int:
 def devolver_el_doble_si_es_multiplo3_el_triple_si_es_multiplo9(numero: int) -> int:
     if numero % 3 == 0:
         return numero * 2
-    if numero % 9 == 0:
+    elif numero % 9 == 0:
         return numero * 3
-    else:
-        return numero
+    return numero
 
 # 4)
 def lindo_nombre(nombre: str) -> str:
@@ -171,8 +169,7 @@ def elRango(numero: int) -> str:
 def vacas_o_trabajo(sexo: chr, edad: int) -> str:
     if (sexo == 'F' and edad >= 60) or (sexo == 'M' and edad >= 65) or (edad < 18):
         return "Andá de vacaciones"
-    else:
-        return "Te toca trabajar"
+    return "Te toca trabajar"
 
 # EJERCICIO 6
 # 1)
@@ -193,16 +190,14 @@ def imprimir_pares() -> None:
 
 imprimir_pares()
 
+# otra opcion:
 # def imprimir_pares() -> None:
 #     for num_par in range (10, 41, 2):   se pone 41 pq es hasta el 40 inclusive, y el 2 pq va de 2 en 2. al 10 lo incluye
 #         print(num_par) # lo que repite
 
 # 3)
 def imprimir_eco() -> None:
-    i = 1
-    while i <= 10:
-        print("eco")
-        i += 1
+    print("eco" "\n" * 10)
     
 imprimir_eco()
 
@@ -210,20 +205,23 @@ imprimir_eco()
 def cuenta_regresiva(numero: int) -> None:
     while numero >= 1:
         print(numero)
-        numero = numero - 1
+        numero -= 1
     print("Despegue")
 
 # 5)
 def viaje_en_el_tiempo(año_partida: int, año_llegada: int) -> None:
     while año_partida > año_llegada:
-        año_partida = año_partida - 1
+        año_partida -= 1
         print("Viajó un año al pasado, estamos en el año:", año_partida)
 
 # 6)
 def viaje_en_el_tiempo2(año_partida: int) -> None:
     while año_partida >= 384:
-        print("Viajó 20 años al pasado, estamos en el año:", año_partida)
         año_partida -= 20
+        if año_partida >= 384:
+            print("Viajó 20 años al pasado, estamos en el año:", año_partida)
+        else:
+            print("¡Si viajo más atrás nos pasamos del 384 a.C.!")
 
 # EJERCICIO 7
 # 1)
