@@ -105,6 +105,13 @@ def peso_pino(metros: float) -> float:
         resultado = 300 * 3 + (altura - 300) * 2 
     return resultado
 
+# 3)
+def sirve_pino(metros: float) -> bool:
+    altura: int = metros * 100
+    return es_peso_util(peso_pino(metros))
+
+print(sirve_pino(2))
+print(sirve_pino(101))
 
 # 2) 
 def es_peso_util(peso: float) -> bool:
