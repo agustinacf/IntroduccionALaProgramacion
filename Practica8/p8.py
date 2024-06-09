@@ -424,25 +424,6 @@ def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
             palabra_mas_frecuente = palabra
     return palabra_mas_frecuente
 
-# EJERCICIO 22
-historiales: dict = {}
-
-def visitar_sitio(historiales: dict[str, Pila[str]], usuario: str, sitio: str) -> None:
-    if usuario in historiales.keys():
-        historiales[usuario] = sitio
-    else:
-        historiales[usuario] = sitio
-
-def navegar_atras(historiales: dict[str, Pila[str]], usuario: str) -> None:
-    elimino_sitio = historiales[usuario][1].get()
-    historiales[usuario][1].put(elimino_sitio)
-
-visitar_sitio(historiales, "Usuario1", "google.com")
-visitar_sitio(historiales, "Usuario1", "facebook.com")
-navegar_atras(historiales, "Usuario1")
-visitar_sitio(historiales, "Usuario2", "youtube.com")
-print(historiales)
-
 # EJERCICIO 23
 inventario: dict = {}
 inventario_aux: dict = {}
