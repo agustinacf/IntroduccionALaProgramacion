@@ -1,7 +1,9 @@
 import typing
-from queue import Queue as Pila
+from queue import LifoQueue as Pila
 from queue import Queue as Cola
+import random
 
+# ARCHIVOS
 # EJERCICIO 1
 # 1)
 def contar_lineas(nombre_archivo:str) -> int:   # el parámetro que recibe es el nombre del archivo
@@ -94,9 +96,10 @@ def agregar_frase_al_principio(nombre_archivo: str, frase: str) -> None:
         archivo.write(linea)
     archivo.close()
 
+# PILAS
 # EJERCICIO 8
 def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
-    p = Pila()  # creo una pila vacia
+    p: Pila = Pila()  # creo una pila vacia
 
     for k in range(cantidad):  # range(cantidad) = range(0, cantidad)
         n: int = random.randint(desde, hasta)
@@ -107,14 +110,6 @@ p = generar_nros_al_azar(3, 1, 10)
 print(p.queue)   # la funcion queue devuelve los elementos de la pila como si fuese una lista
 
 # EJERCICIO 9
-def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:   # agrego esta funcion para poder crear pilas en cantidad_elementos
-    p = Pila()
-
-    for k in range(cantidad):
-        n: int = random.randint(desde, hasta)
-        p.put(n)
-    return p
-
 def cantidad_elementos(p: Pila) -> int:
     cantidad: int = 0
     pila_clonada: Pila = Pila()
@@ -144,31 +139,20 @@ print(cantidad_elementos(m))
 print(m.queue)
 
 # EJERCICIO 10
-def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
-    p = Pila()  # creo una pila vacia
-
-    for k in range(cantidad):  # range(cantidad) = range(0, cantidad)
-        n: int = random.randint(desde, hasta)
-        p.put(n)
-    return p
-
-def buscar_el_maximo(p: Pila) -> int:
-    max: int = p.get()
+def buscar_el_maximo(p: Pila[int]) -> int:
     pila_copiada: Pila = Pila()
-    elem: int 
-    
+    max: int = p.get()
     pila_copiada.put(max)
 
     while not p.empty():
-        elem = p.get()
+        elem: int = p.get()
+        pila_copiada.put(elem)
         if elem > max:
             max = elem
-        pila_copiada.put(elem)
-        
+    
     while not pila_copiada.empty():
-        elem = pila_copiada.get()
-        p.put(elem)
-        
+        p.put(pila_copiada.get())
+
     return max
 
 p = generar_nros_al_azar(4, 1, 100)
@@ -188,13 +172,13 @@ def evaluar_expresion(expresion: str) -> float:
             n1 = int(operadores.get())
             n2 = int(operadores.get())
             if token == "+":
-                operadores.put(n1 + n2)
+                operadores.put(n2 + n1)
             if token == "-":
-                operadores.put(n1 - n2)
+                operadores.put(n2 - n1)
             if token == "*":
-                operadores.put(n1 * n2)
+                operadores.put(n2 * n1)
             if token == "/":
-                operadores.put(n1 / n2)
+                operadores.put(n2 / n1)
     return operadores.get()
 
 expresion = "3 4 + 5 * 2 -"
@@ -202,6 +186,7 @@ print(evaluar_expresion(expresion))
 expresion2 = "10 2 + 3 / 2 - 3 +"
 print(evaluar_expresion(expresion2))
 
+# COLAS 
 # EJERCICIO 13
 def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Cola[int]:
     c = Cola()  # creo una Cola vacia
@@ -215,14 +200,6 @@ c = generar_nros_al_azar(4, 1, 200)
 print(c.queue)
 
 # EJERCICIO 14
-def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Cola[int]:
-    p = Cola()
-
-    for k in range(cantidad):
-        n: int = random.randint(desde, hasta)
-        p.put(n)
-    return p
-
 def cantidad_elementos(c: Cola) -> int:
     cantidad: int = 0
     cola_clonada: Cola = Cola()
@@ -248,14 +225,6 @@ print(cantidad_elementos(c))
 print(c.queue)
 
 # EJERCICIO 15
-def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Cola[int]:
-    p = Cola()
-
-    for k in range(cantidad):
-        n: int = random.randint(desde, hasta)
-        p.put(n)
-    return p
-
 def buscar_el_maximo(c: Cola[int]) -> int:
     max: int = c.get()
     elem: int
@@ -413,6 +382,7 @@ print(c.queue)
 print(atencion_a_clientes(c))
 print(c.queue)
 
+# DICCIONARIOS
 # EJERCICIO 19
 def agrupar_por_longitud(nombre_archivo: str) -> dict:
     res: dict[int, int] = {}   # creo un diccionario vacio
@@ -454,6 +424,61 @@ def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
             palabra_mas_frecuente = palabra
     return palabra_mas_frecuente
 
+# EJERCICIO 22
+historiales: dict = {}
 
+def visitar_sitio(historiales: dict[str, Pila[str]], usuario: str, sitio: str) -> None:
+    if usuario in historiales.keys():
+        historiales[usuario] = sitio
+    else:
+        historiales[usuario] = sitio
+
+def navegar_atras(historiales: dict[str, Pila[str]], usuario: str) -> None:
+    elimino_sitio = historiales[usuario][1].get()
+    historiales[usuario][1].put(elimino_sitio)
+
+visitar_sitio(historiales, "Usuario1", "google.com")
+visitar_sitio(historiales, "Usuario1", "facebook.com")
+navegar_atras(historiales, "Usuario1")
+visitar_sitio(historiales, "Usuario2", "youtube.com")
+print(historiales)
+
+# EJERCICIO 23
+inventario: dict = {}
+inventario_aux: dict = {}
+
+# 1) 
+def agregar_producto(inventario: dict[str, dict[int, int]], nombre: str, precio: int, cantidad: int) -> None:
+    if nombre not in inventario.keys():
+        inventario_aux = {
+            "precio": precio,
+            "cantidad": cantidad,
+    }
+        inventario[nombre] = inventario_aux
+
+# 2)
+def actualizar_stock(inventario: dict, nombre: str, cantidad: str) -> None:
+    if nombre in inventario.keys():
+        inventario[nombre]["cantidad"] = cantidad
+
+# 3)
+def actualizar_precios(inventario: dict, nombre: str, precio: int) -> None:
+    if nombre in inventario.keys():
+        inventario[nombre]["precio"] = precio
+
+# 4)
+def calcular_valor_inventario(inventario: dict) -> float:
+    valor_total_inventario: int = 0
+
+    for producto in inventario.values():
+        valor_total_inventario += producto["precio"] * producto["cantidad"]
+    return valor_total_inventario
+
+inventario = {}
+agregar_producto(inventario, "Camisa", 20.0, 50)
+agregar_producto(inventario, "Pantalón", 30.0, 30)
+actualizar_stock(inventario, "Camisa", 10)
+valor_total = calcular_valor_inventario(inventario)
+print("Valor total del inventario:", valor_total)
 
 
