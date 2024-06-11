@@ -1,16 +1,16 @@
 # IP
 (Tomarlo como ayuda, siempre revisar los ejercicios)
 
-Las guías que están en este repositorio son:
+Las prácticas que están en este repositorio son:
 
-♥ Guía 3 : introducción a Haskell.
+  ♥ Practica3 : introducción a Haskell.
 
-♥ Guía 4 : recursión sobre números enteros.
+  ♥ Practica4 : recursión sobre números enteros.
 
-♥ Guía 5: recursión sobre listas.
+  ♥ Practica5: recursión sobre listas.
 
-♥ Guía 6: introducción a Lenguaje Imperativo.
+  ♥ Practica6: introducción a Lenguaje Imperativo.
 
-♥ Guía 7: funciones sobre listas (tipos complejos).
+  ♥ Practica7: funciones sobre listas (tipos complejos).
 
-♥ Guía 8: Archivos, Pilas, Colas y Diccionarios.
+  ♥ Practica8: Archivos, Pilas, Colas y Diccionarios.
