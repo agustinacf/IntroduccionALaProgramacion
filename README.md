@@ -1,6 +1,8 @@
 # IP
 (Tomarlo como ayuda, siempre revisar los ejercicios)
 
+Que tengan buena cursada :)
+
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
 | [Practica 3](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/17a09a6f4447814807467533e21264f00112672d/Practica3) | Introducción a Haskell                     | Haskell  |
