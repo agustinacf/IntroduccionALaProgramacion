@@ -2,7 +2,7 @@
 fibonacci :: Integer -> Integer
 fibonacci n | n == 0 = 0
             | n == 1 = 1 
-            | otherwise = fibonacci (n-1) + fibonacci (n-2)
+            | otherwise = fibonacci (n - 1) + fibonacci (n - 2)
 
 --Tambien:
 --fibonacci :: Integer -> Integer
@@ -20,8 +20,8 @@ fibonacci n | n == 0 = 0
 parteEntera :: Float -> Integer
 parteEntera n | n < (-1) && n < 0 = -1 
               | n >= 0 && n < 1 = 0
-              | n >= 1 = parteEntera (n-1) + 1
-              | otherwise = parteEntera (n+1) - 1  
+              | n >= 1 = parteEntera (n - 1) + 1
+              | otherwise = parteEntera (n + 1) - 1  
 
 -- EJERCICIO 3 --
 esDivisible :: Integer -> Integer -> Bool

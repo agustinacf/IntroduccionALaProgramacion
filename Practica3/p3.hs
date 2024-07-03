@@ -1,33 +1,29 @@
 -- EJERCICIO 1 --
-
---YO LO HICE ASI:
---f :: Integer -> Integer
---f 1 = 8
---f 4 = 131
---f 16 = 16
-
---g :: Integer -> Integer
---g 8 = 16
---g 16 = 4
---g 131 = 1
-
---h x = f(g x)
-
---k x = g(f x)
---sirvio pero se puede escribir mejor, no está mal escrito
-
---MEJOR RESUELTO:
-
+--a)
+--resuelto con pattern matching:
 f :: Integer -> Integer
-f n | n == 1 = 8
+f 1 = 8
+f 4 = 131
+f 16 = 16
+--resuelto sin pattern matching:
+f2 :: Integer -> Integer
+f2 n | n == 1 = 8
     | n == 4 = 131
     | n == 16 = 16
 
+--b)
+--resuelto con pattern matching:
 g :: Integer -> Integer
-g n | n == 8 = 16
+g 8 = 16
+g 16 = 4
+g 131 = 1
+--resuelto sin pattern matching:
+g2 :: Integer -> Integer
+g2 n | n == 8 = 16
     | n == 16 = 4
     | n == 131 = 1
 
+--c)
 h :: Integer -> Integer
 h n = f (g n)
 
@@ -86,38 +82,28 @@ mismoIntervalo x y | x <= 3 && y <= 3 = True
 --g)
 sumaDistintos :: Integer -> Integer -> Integer -> Integer
 sumaDistintos x y z | x /= y && x /= z && y /= z = x + y + z
-                    | x == y && x /= z = z
-                    | x == z && x /= y = y
-                    | y == z && y /= x = x
+                    | x == y && x /= z = x + z
+                    | x == z && x /= y = x + y
+                    | y == z && y /= x = y + x
                     | otherwise = 0
 
 --h)
 esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe x y | mod x y == 0 = True
-                 | mod x y /= 0 = False   
+                 | otherwise = False   
 
 --i)
 digitoUnidades :: Integer -> Integer
-digitoUnidades x = mod (abs x) 10 --el abs es de valor absoluto, y se incluye en el parentesis junto a la x
-
---otra forma, sin usar abs:
-
-digitoUnidades2 :: Integer -> Integer
-digitoUnidades2 x = mod (absoluto x) 10
+digitoUnidades x = mod (absoluto x) 10 --en vez de absoluto tambien se puede usar abs
 
 --j)
 digitoDecenas :: Integer -> Integer
-digitoDecenas x = digitoUnidades (div (abs x) 10)
-
---otra forma, sin usar abs:
-
-digitoDecenas2 :: Integer -> Integer
-digitoDecenas2 x = digitoUnidades (div (absoluto x) 10)
+digitoDecenas x = digitoUnidades (div (absoluto x) 10) --quita el ultimo numero de lo que se pone
+                                                       --como entrada, y devuelve las decenas         
 
 -- EJERCICIO 3 --
 estanRelacionados :: Integer -> Integer -> Bool
-estanRelacionados a b | mod a b == 0 = True 
-                      | a == 0 && b == 0 = False   
+estanRelacionados a b | mod a b == 0 = True  
                       | otherwise = False  
 
 -- EJERCICIO 4 --
@@ -139,14 +125,15 @@ sumaTerna (x, y, z) = x + y + z
 
 --e)
 sumarSoloMultiplos :: (Integer, Integer, Integer) -> Integer -> Integer
-sumarSoloMultiplos (a, b, c) d | mod a d == 0 = (a)
-                               | mod b d == 0 = (b) 
-                               | mod c d == 0 = (c)
-                               | mod a d == 0 && mod b d == 0 && mod c d /= 0 = (a) + (b)  
-                               | mod a d /= 0 && mod b d == 0 && mod c d == 0 = (b) + (c)
-                               | mod a d == 0 && mod b d /= 0 && mod c d == 0 = (a) + (c)
-                               | mod a d == 0 && mod b d == 0 && mod c d == 0 = (a) + (b) + (c)
-                               | otherwise = 0                    
+sumarSoloMultiplos (a, b, c) d 
+    | mod a d == 0 && mod b d == 0 && mod c d /= 0 = a + b  
+    | mod a d /= 0 && mod b d == 0 && mod c d == 0 = b + c
+    | mod a d == 0 && mod b d /= 0 && mod c d == 0 = a + c
+    | mod a d == 0 && mod b d == 0 && mod c d == 0 = a + b + c
+    | mod a d == 0 = a
+    | mod b d == 0 = b 
+    | mod c d == 0 = c
+    | otherwise = 0                    
 
 --f)
 posPrimerPar :: (Integer, Integer, Integer) -> Integer
@@ -165,15 +152,15 @@ invertir (a, b) = (b, a)
 
 -- EJERCICIO 5 --
 todosMenores :: (Integer, Integer, Integer) -> Bool
-todosMenores (x, y, z) = f (x) > g(x) && f (y) > g(y) && f (z) > g (z)
+todosMenores (x, y, z) = f3(x) > g3(x) && f3(y) > g3(y) && f3(z) > g3(z)
 
-f :: Integer -> Integer
-f n | n <= 7 = n^2
-    | n >7 = 2*n - 1 
+f3 :: Integer -> Integer
+f3 n | n <= 7 = n^2
+     | n > 7 = 2*n - 1 
 
-g :: Integer -> Integer
-g n | mod n 2 == 0 = div n 2 
-    | otherwise = 3*n + 1
+g3 :: Integer -> Integer
+g3 n | mod n 2 == 0 = div n 2 
+     | otherwise = 3*n + 1
 
 -- EJERCICIO 6 --
 bisiesto :: Integer -> Bool
