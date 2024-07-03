@@ -12,7 +12,7 @@ ultimo (x:xs) = ultimo xs
 --3) 
 principio :: [t] -> [t]
 principio (x:[]) = []
-principio (x:xs) = x: principio xs
+principio (x:xs) = x : principio xs
 
 --4) 
 reverso :: [t] -> [t]
@@ -33,10 +33,6 @@ todosIguales [x] = True
 todosIguales (x:xs) | longitud xs == 1 = x == head xs
                     | x /= head xs = False
                     | otherwise = todosIguales xs
-
-longitud :: [t] -> Integer 
-longitud [x] = 1
-longitud (x:xs) = 1 + longitud xs
 
 --3)
 todosDistintos :: (Eq t) => [t] -> Bool
@@ -95,11 +91,6 @@ capicua (x:xs) | todosIguales (x:xs) = True
                | reverso (x:xs) == (x:xs) = True
                | otherwise = False
 
-reverso :: [t] -> [t]
-reverso [] = []
-reverso [x] = [x]
-reverso (x:xs) = reverso (xs) ++ [x] 
-
 -- EJERCICIO 3 --
 --1)
 sumatoria :: [Integer] -> Integer
@@ -120,7 +111,7 @@ maximo (x:y:xs) | x > y = maximo (x:xs)
 --4)
 sumarN :: Integer -> [Integer] -> [Integer]
 sumarN n [] = [n]
-sumarN n [x] = [n + x]
+sumarN n [x] = [x + n]
 sumarN n (x:xs) = x + n : sumarN n xs
 
 --5)
@@ -132,10 +123,6 @@ sumarElPrimero (x:xs) = sumarN x (x:xs)
 sumarElUltimo :: [Integer] -> [Integer]
 sumarElUltimo [x] = [x + x]
 sumarElUltimo (x:xs) = sumarN (ultimo xs) (x:xs)
-
-ultimo :: [t] -> t
-ultimo [x] = x
-ultimo (x:xs) = ultimo xs
 
 --7)
 pares :: [Integer] -> [Integer]
@@ -155,11 +142,6 @@ multiplosDeN n (x:xs) | mod x n == 0 = x : multiplosDeN n xs
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
 ordenar (xs) = ordenar (quitar (maximo xs) xs) ++ [maximo xs]
-
-quitar :: (Eq t) => t -> [t] -> [t]
-quitar _ [] = []
-quitar elem (x:xs) | elem == x = xs 
-                   | otherwise = x : quitar elem xs 
 
 -- EJERCICIO 4 --
 --a)
@@ -213,11 +195,6 @@ comparoPalabras (x:[]) = [x]
 comparoPalabras (xs) | sacarPrimerPalabra xs == [] = primerPalabra xs   --si al sacar la primer palabra es vacio, el res es la primer palabra
                      | longitud (primerPalabra xs) > longitud (comparoPalabras(sacarPrimerPalabra xs)) = primerPalabra xs
                      | otherwise = comparoPalabras(sacarPrimerPalabra xs)   
-
-
-longitud :: [t] -> Integer 
-longitud [x] = 1
-longitud (x:xs) = 1 + longitud xs
 
 --e)
 aplanar :: [[Char]] -> [Char]
