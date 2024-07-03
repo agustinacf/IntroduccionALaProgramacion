@@ -185,21 +185,33 @@ esFibonacciAux n i | n == fibonacci i = True
 
 -- EJERCICIO 18 --
 mayorDigitoPar :: Integer -> Integer
-mayorDigitoPar n | n == 1 = -1
-                 | n < 10 && esPar n = n
-                 | n < 10 && esPrimo n = -1   
-                 | esPar (ultimoDigito n) = esMax ((ultimoDigito n) (sacarUltimoDigito n))
+mayorDigitoPar n 
+    | hayDigitoPar (n) == False = -1
+    | maximoPar (ultimoDigito (n)) (sacarUltimoDigito (n)) == 0 = -1
+    | esPar(ultimoDigito (n)) = maximoPar (ultimoDigito (n)) (sacarUltimoDigito(n))
+    | otherwise = mayorDigitoPar (sacarUltimoDigito(n))
 
 esPar :: Integer -> Bool
-esPar n | n == 1 = False
-        | n == 2 = True
-        | esPrimo n = False
-        | mod n 2 == 0 = True  
+esPar n | mod n 2 == 0 = True  
+        | otherwise = False
 
-esMax :: Integer -> Integer -> Integer
-esMax n m | n > m = n
-          | n < m = m
-          | n == m = n
+hayDigitoPar :: Integer -> Bool
+hayDigitoPar n 
+    | n >= 0 && n < 10 = esPar (n)
+    | esPar(ultimoDigito (n)) = True
+    | otherwise = hayDigitoPar(sacarUltimoDigito (n))
+
+maximo :: Integer -> Integer -> Integer
+maximo n m | n > m = n
+           | n < m = m
+           | n == m = n 
+
+maximoPar :: Integer -> Integer -> Integer
+maximoPar n m 
+    | hayDigitoPar (m) == False = maximo n 0
+    | cantDigitos (m) == 1 = maximo n m
+    | esPar (m) = maximoPar (maximo n (ultimoDigito (m))) (sacarUltimoDigito(m))
+    | otherwise = maximoPar n (sacarUltimoDigito (m))  
 
 -- EJERCICIO 19 --
 esSumaInicialDePrimos :: Integer -> Bool
