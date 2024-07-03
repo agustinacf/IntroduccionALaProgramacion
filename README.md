@@ -1,5 +1,5 @@
 # Introducción a la Programación
-(Tomarlo como ayuda, siempre revisar los ejercicios)
+Tomarlo como ayuda, siempre revisar los ejercicios
 
 Que tengan buena cursada :)
 
