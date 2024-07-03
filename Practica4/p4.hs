@@ -8,13 +8,13 @@ fibonacci n | n == 0 = 0
 --fibonacci :: Integer -> Integer
 --fibonacci 0 = 0
 --fibonacci 1 = 1
---fibonacci n = fibonacci(n-1) + fibonacci(n-2) 
+--fibonacci n = fibonacci(n - 1) + fibonacci(n - 2) 
 
 --o
 
 --fibonacci :: Integer -> Integer
 --fibonacci n | n == 0 || n == 1 = n
---            | n >= 2 = fibonacci(n-1) + fibonacci(n-2)  
+--            | n >= 2 = fibonacci(n - 1) + fibonacci(n - 2)  
 
 -- EJERCICIO 2 --
 parteEntera :: Float -> Integer
@@ -22,13 +22,6 @@ parteEntera n | n < (-1) && n < 0 = -1
               | n >= 0 && n < 1 = 0
               | n >= 1 = parteEntera (n - 1) + 1
               | otherwise = parteEntera (n + 1) - 1  
-
--- EJERCICIO 3 --
-esDivisible :: Integer -> Integer -> Bool
-esDivisible x y | x == y = True
-                | x < y = False
-                | y < 0 = esDivisible (x + y) y
-                | otherwise = esDivisible (x - 1) y 
 
 -- EJERCICIO 4 --
 sumaImpares :: Integer -> Integer
@@ -44,7 +37,7 @@ medioFact x = medioFact (x - 2) * x
 -- EJERCICIO 6 --
 sumaDigitos :: Integer -> Integer
 sumaDigitos x | x < 10 = x
-              | x >= 10 = sumaDigitos (ultimoDigito x) + sumaDigitos (sacarUltimoDigito x)
+              | x >= 10 = ultimoDigito x + sumaDigitos (sacarUltimoDigito x)
 
 ultimoDigito :: Integer -> Integer
 ultimoDigito x = mod x 10
@@ -60,48 +53,36 @@ todosDigitosIguales n | n < 10 = True
                       --el ultimo digito de n (o sea, 4) tiene que ser igual al ultimo digito de 123 y, a su vez, tiene que ser 
                       --igual a volver a aplicar la funcion al 123
 
-ultimoDigito :: Integer -> Integer
-ultimoDigito n = mod n 10
-
-sacarUltimoDigito :: Integer -> Integer
-sacarUltimoDigito n = div n 10
-
 -- EJERCICIO 8 --
 iesimoDigito :: Integer -> Integer -> Integer
-iesimoDigito n i | cantDigitos n == i = ulimoDigito (n) 
+iesimoDigito n i | cantDigitos n == i = ultimoDigito (n) 
                  | otherwise = iesimoDigito (sacarUltimoDigito (n)) i  
 
 cantDigitos :: Integer -> Integer
 cantDigitos n | n < 10 = 1
               | otherwise = cantDigitos (sacarUltimoDigito (n)) + 1  
 
-ulimoDigito :: Integer -> Integer
-ulimoDigito n = mod n 10
-
-sacarUltimoDigito :: Integer -> Integer
-sacarUltimoDigito n = div n 10
-
 -- EJERCICIO 9 --
 esCapicua :: Integer -> Bool
-esCapicua n | n >= 0 && n < 10 = True
-            | todosDigitosIguales n = True
+esCapicua n 
+    | n >= 10 && n < 100 = todosDigitosIguales (n)
+    | cantDigitos (n) >= 3 = sonIguales (n)
+    | todosDigitosIguales (n) = True
+    | otherwise = False
 
-todosDigitosIguales :: Integer -> Bool
-todosDigitosIguales n | n < 10 = True  
-                      | otherwise = ultimoDigito n == ultimoDigito (sacarUltimoDigito n) && todosDigitosIguales (sacarUltimoDigito n)
-                      --esta ultima linea quiere decir, tomando como ejemplo al 1234:
-                      --el ultimo digito de n (o sea, 4) tiene que ser igual al ultimo digito de 123 y, a su vez, tiene que ser 
-                      --igual a volver a aplicar la funcion al 123
+primerDigito :: Integer -> Integer
+primerDigito n | n >= 0 && n < 10 = n 
+               | otherwise = primerDigito(sacarUltimoDigito (n))
 
-ultimoDigito :: Integer -> Integer
-ultimoDigito n = mod n 10
+sacarPrimerDigito :: Integer -> Integer
+sacarPrimerDigito n | n >= 10 && n < 100 = ultimoDigito (n)
+                    | otherwise = mod n (10^(cantDigitos(n) - 1))
 
-sacarUltimoDigito :: Integer -> Integer
-sacarUltimoDigito n = div n 10
-
-reverso :: Integer -> Integer 
-reverso x | x >= 0 && x < 10 = x
-          | otherwise = reverso x ++ x  
+sonIguales :: Integer -> Bool
+sonIguales n 
+    | n >= 100 && n < 1000 = ultimoDigito (n) == primerDigito (n)
+    | primerDigito(n) == ultimoDigito (n) = sonIguales(sacarPrimerDigito(sacarUltimoDigito (n)))
+    | otherwise = False 
 
 -- EJERCICIO 10 --
 --a)
@@ -141,7 +122,7 @@ raizDe2Aprox :: Integer -> Float
 raizDe2Aprox 1 = 1
 raizDe2Aprox n = 1 + 1/sucesion(n - 1)
 
-sucesion :: Integer -> Float   --planteo una funcion auxiliar para la sucesion presentada
+sucesion :: Integer -> Float
 sucesion 1 = 2
 sucesion n = 2 + 1/sucesion(n - 1)
 
@@ -176,33 +157,28 @@ esPrimo n | menorDivisor n == n = True
 
 --c) 
 sonCoprimos :: Integer -> Integer -> Bool
-sonCoprimos a b | esPrimo a && esPrimo b = True
-                | menorDivisor a == menorDivisor b = False
-                | mod a b == 0 && mod b a == 0 = False
-                | b == 1 = True
-                | a == 1 = True
-                | a > b = sonCoprimos a (b - 1)
-                | a < b = sonCoprimos (a - 1) b
+sonCoprimos x y 
+    | x == 1 || y == 1 = True
+    | esPrimo x && esPrimo y = True
+    | mod x y == 0 || mod y x == 0 = False
+    | menorDivisor x == menorDivisor y = False
+    | menorDivisor x /= menorDivisor y = True
+    | otherwise = False
 
 --d)
 nEsimoPrimo :: Integer -> Integer
 nEsimoPrimo 1 = 2
-nEsimoPrimo n = siguientePrimo (nEsimoPrimo (n-1))
+nEsimoPrimo n = proximoPrimo (nEsimoPrimo (n - 1))
 
-siguientePrimo :: Integer -> Integer 
-siguientePrimo n | esPrimo (n + 1) = n + 1
-                 | otherwise = siguientePrimo (n + 1)   
+proximoPrimo :: Integer -> Integer 
+proximoPrimo n | esPrimo (n + 1) = n + 1
+               | otherwise = proximoPrimo (n + 1)   
 
 -- EJERCICIO 17 --
 esFibonacci :: Integer -> Bool
 esFibonacci n = esFibonacciAux n 0  
 
-fibonacci :: Integer -> Integer
-fibonacci n | n == 0 = 0
-            | n == 1 = 1 
-            | otherwise = fibonacci (n-1) + fibonacci (n-2)
-
-esFibonacciAux :: Integer -> Integer -> Integer
+esFibonacciAux :: Integer -> Integer -> Bool
 esFibonacciAux n i | n == fibonacci i = True
                    | fibonacci i > n = False
                    | otherwise = esFibonacciAux n (i + 1)
@@ -218,25 +194,7 @@ esPar :: Integer -> Bool
 esPar n | n == 1 = False
         | n == 2 = True
         | esPrimo n = False
-        | mod n 2 == 0 = True
-
-menorDivisor :: Integer -> Integer
-menorDivisor n | n == 2 = 2
-               | otherwise = menorDivisorDesde n 2      
-
-menorDivisorDesde :: Integer -> Integer -> Integer
-menorDivisorDesde n i | mod n i == 0 = i
-                      | otherwise = menorDivisorDesde n (i + 1)
-
-esPrimo :: Integer -> Bool
-esPrimo n | menorDivisor n == n = True  
-          | otherwise = False
-
-ultimoDigito :: Integer -> Integer
-ultimoDigito n = mod n 10
-
-sacarUltimoDigito :: Integer -> Integer
-sacarUltimoDigito n = div n 10
+        | mod n 2 == 0 = True  
 
 esMax :: Integer -> Integer -> Integer
 esMax n m | n > m = n
@@ -257,23 +215,3 @@ esSumaPrimosHasta m n | sumaPrimosHasta m == n = True
                       | sumaPrimosHasta m > n = False
                       | otherwise = esSumaPrimosHasta (m + 1) n   --se aplica recursion a la funcion testeando con numeros cada vez mayores
                                                                   --a m hasta que se cumpla una de las primeras dos condiciones                            
-
-menorDivisor :: Integer -> Integer
-menorDivisor n | n == 2 = 2
-               | otherwise = menorDivisorDesde n 2      
-
-menorDivisorDesde :: Integer -> Integer -> Integer
-menorDivisorDesde n i | mod n i == 0 = i    
-                      | otherwise = menorDivisorDesde n (i + 1)
-
-esPrimo :: Integer -> Bool
-esPrimo n | menorDivisor n == n = True  
-          | otherwise = False  
-
-nEsimoPrimo :: Integer -> Integer
-nEsimoPrimo 1 = 2
-nEsimoPrimo n = siguientePrimo (nEsimoPrimo (n-1))
-
-siguientePrimo :: Integer -> Integer 
-siguientePrimo n | esPrimo (n + 1) = n + 1
-                 | otherwise = siguientePrimo (n + 1)  
