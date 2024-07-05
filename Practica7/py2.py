@@ -1,3 +1,5 @@
+import random
+
 # EJERCICIO 1
 # 1)
 def pertenece(s: list[int], e: int) -> bool:
@@ -445,4 +447,163 @@ res = []
 print(filas_ordenadas(z, res))
 
 # 3)
-def columna
+def columna(s: list[list[int]], c: int) -> list[int]:
+    res: list[int] = []
+    
+    for fila in s:
+        elemento: int = fila[c]
+        res.append(elemento)
+    return res
+
+m1 = [[1,2,3],
+      [4,5,6],
+      [12,8,9]]
+print(columna(m1, 0)) # [1,4,12]
+print(columna(m1, 2)) # [3,6,9]
+
+# 4)
+def columnas_ordenadas(m: list[list[int]]) -> list[bool]:
+    res: list[bool] = []
+
+    for i in range(len(m[0])): # como es matriz da igual el indice que tome
+        if ordenados(columna(m, i)):
+            res.append(True)
+        else:
+            res.append(False)
+    return res
+
+m1 = [[1,2,3],
+      [4,5,6],
+      [12,8,9]]
+print(columnas_ordenadas(m1))
+m2 = [[1,4,5,6],
+      [0,7,8,9],
+      [3,8,6,1]]
+print(columnas_ordenadas(m2))
+
+# 5)
+def transponer(m: list[list[int]]) -> list[list[int]]:
+    res: list[list[int]] = []
+
+    for i in range(len(m[0])):
+        fila = columna(m,i)
+        res.append(fila)
+    return res
+
+m1 = [[1,2,3],
+      [4,5,6],
+      [12,8,9]]
+print(transponer(m1))
+m2 = [[1,4,5,6],
+      [0,7,8,9],
+      [3,8,6,1]]
+print(transponer(m2))
+m3 = [[1,2,3],
+      [4,5,6],
+      [7,8,9],
+      [10,11,12]]
+print(transponer(m3))
+
+# 6)
+def quien_gana_tateti(m: list[str]) -> int:
+    
+
+# EJERCICIO 7
+# 1)
+def construir_lista() -> list[str]:
+    lista: list[str] = []
+    nombre = input("Indique el nombre: ")
+    
+    while nombre != "listo":
+        lista.append(nombre)
+        nombre = input("Indique el nombre: ")
+    return lista
+
+print(construir_lista())
+
+# 2)
+def monedero_electronico() -> None:
+    monedero = 0
+    operacion = ""
+    historial: list[(str, int)] = []
+    
+    while operacion != "X":
+        operacion = input("Indique la operación ('C': cargar, 'D': descontar, 'X': finalizar): ")
+        if operacion == "C":
+            monto = int(input("Indique el monto para la operación: "))
+            monedero += monto
+            historial.append(("C", monto))
+        elif operacion == "D":
+            monto = int(input("Indique el monto para la operación: "))
+            monedero -= monto
+            historial.append(("D", monto))
+    print("Su dinero es de $"+str(monedero)+".")
+    return("Su historial de operaciones es "+str(historial)+".")
+
+print(monedero_electronico())
+
+# 3)
+# aca la re vivi jajajaj, seguro se puede hacer una versión más simple
+def siete_y_medio() -> None:
+    suma_numeros = 0
+    numero_aleatorio = ""
+    eleccion = ""
+    historial: list[int] = []
+
+    while eleccion != "P":  
+        if suma_numeros < 7.5:
+            eleccion = input("¿Desea sacar una carta o plantarse? ('C': sacar otra carta, 'P': plantarse): ")
+            if eleccion == "C":
+                numero_aleatorio = random.choice([1, 2, 3, 4, 5, 6, 7, 10, 11, 12])
+                print("Su carta es "+str(numero_aleatorio)+"")
+                historial.append(numero_aleatorio)
+                if (numero_aleatorio == 10 or numero_aleatorio == 11 or numero_aleatorio == 12):
+                    suma_numeros += 0.5
+                    if suma_numeros == 7.5:
+                        print("¡Ganaste el juego! Tu puntaje es de "+str(suma_numeros)+".")
+                        return("Las cartas que te tocaron fueron: "+str(historial)+".")
+                    elif suma_numeros > 7.5:
+                        print("¡Perdiste el juego! Tu puntaje es de "+str(suma_numeros)+".")
+                        return("Las cartas que te tocaron fueron: "+str(historial)+".")
+                else:
+                    suma_numeros += numero_aleatorio
+                    if suma_numeros == 7.5:
+                        print("¡Ganaste el juego! Tu puntaje es de "+str(suma_numeros)+".")
+                        return("Las cartas que te tocaron fueron: "+str(historial)+".")
+                    elif suma_numeros > 7.5:
+                        print("¡Perdiste el juego! Tu puntaje es de "+str(suma_numeros)+".")
+                        return("Las cartas que te tocaron fueron: "+str(historial)+".")
+    print("¡Terminó el juego! Tu puntaje fue de "+str(suma_numeros)+".")
+    return("Las cartas que te tocaron fueron: "+str(historial)+".")      
+
+print(siete_y_medio())
+
+# 4)
+def al_menos_una_mayus(contraseña: str) -> bool:
+    res = False
+    for letra in contraseña:
+        if 'A' <= letra <= 'Z':
+            res = True
+    return res
+
+def al_menos_una_minus(contraseña: str) -> bool:
+    res = False
+    for letra in contraseña:
+        if 'a' <= letra <= 'z':
+            res = True
+    return res
+
+def al_menos_un_numero(contraseña: str) -> bool:
+    res = False
+    for num in contraseña:
+        if '0' <= num <= '9':
+            res = True
+    return res
+
+def fortaleza(contraseña: str) -> str:
+    if al_menos_una_mayus(contraseña) and al_menos_una_minus(contraseña) and al_menos_un_numero(contraseña) and len(contraseña) > 8:
+        return "VERDE"
+    elif len(contraseña) < 5:
+        return "ROJA"
+    else:
+        return "AMARILLA"
