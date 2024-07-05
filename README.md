@@ -11,7 +11,7 @@ Pueden haber ejercicios faltantes.
 
 Que tengan buena cursada :love_letter:
 
-![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
+                    ![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
 
 ## Prácticas
 
