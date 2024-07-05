@@ -1,17 +1,26 @@
 # Introducción a la Programación
 
-![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
+<p align="center">
+  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="500">
+</p>
 
-_**¡¡Importante!!**_
+##
 
-_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
-Pueden encontrarlas en este repositorio resueltas.**_
-
+<p align="center">
 Tomarlo como ayuda, siempre revisar los ejercicios.
-
+</p>
+<p align="center">
 Pueden haber ejercicios faltantes.
-
+</p>
+<p align="center">
 Que tengan buena cursada :love_letter:
+</p>
+
+>_**¡¡Importante!!**_
+>
+>**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
+>Pueden encontrarlas en este repositorio resueltas.**
+</p>
 
 ## Prácticas
 
@@ -23,3 +32,12 @@ Que tengan buena cursada :love_letter:
 | [Practica 6](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica6) | Introducción a Lenguaje Imperativo         | Python   | 
 | [Practica 7](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica7) | Funciones sobre listas (tipos complejos)   | Python   |
 | [Practica 8](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica8) | Archivos, Pilas, Colas y Diccionarios      | Python   |
+
+## Parciales
++ Haskell
+  + [Compilación 2023-2024](https://github.com/agustinacf/RepasoPrimerParcialIP.git)
+  + [Primer parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/PrimerParcialIP.git)
+
++ Python
+  + [Compilación 2023-2024](https://github.com/agustinacf/RepasoSegundoParcialIP.git)
+  + [Segundo parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/SegundoParcialIP.git)
