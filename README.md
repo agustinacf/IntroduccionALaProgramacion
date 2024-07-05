@@ -1,6 +1,6 @@
 # Introducción a la Programación
 
-![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
+<h1 aling="center"> ![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
 
 _**¡¡Importante!!**_
 
