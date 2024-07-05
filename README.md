@@ -4,7 +4,8 @@
   <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="600">
 </p>
 
-<h1 align="center>_**¡¡Importante!!**_
+<h1 align="center>
+_**¡¡Importante!!**_
 
 _**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
 Pueden encontrarlas en este repositorio resueltas.**_
