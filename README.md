@@ -8,10 +8,13 @@
 
 <p align="center">
 Tomarlo como ayuda, siempre revisar los ejercicios.
-
+</p>
+<p align="center">
 Pueden haber ejercicios faltantes.
-
+</p>
+<p align="center">
 Que tengan buena cursada :love_letter:
+</p>
 
 >_**¡¡Importante!!**_
 >
