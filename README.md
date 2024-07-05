@@ -1,7 +1,7 @@
 # Introducción a la Programación
 
 <p align="center">
-  <img src="https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/adae9583-5808-40f1-a5e1-54953cd374a3" align="center">
+  <img src="[https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/adae9583-5808-40f1-a5e1-54953cd374a3](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmakeagif.com%2Fgif%2Fthe-office-random-funny-moments-part-1-c1VKAm&psig=AOvVaw1bmbionrBtM-LoqOjiwlov&ust=1720299421556000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCPjnm_HkkIcDFQAAAAAdAAAAABAE)" align="center">
 </p>
 
 _**¡¡Importante!!**_
