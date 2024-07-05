@@ -6,16 +6,16 @@
 
 ##
 
->_**¡¡Importante!!**_
-
->_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
->Pueden encontrarlas en este repositorio resueltas.**
-
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
 Pueden haber ejercicios faltantes.
 
 Que tengan buena cursada :love_letter:
+
+>_**¡¡Importante!!**_
+
+>**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
+>Pueden encontrarlas en este repositorio resueltas.**
 
 ## Prácticas
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
