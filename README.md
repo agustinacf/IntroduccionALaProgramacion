@@ -33,3 +33,11 @@ Que tengan buena cursada :love_letter:
 | [Practica 7](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica7) | Funciones sobre listas (tipos complejos)   | Python   |
 | [Practica 8](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica8) | Archivos, Pilas, Colas y Diccionarios      | Python   |
 
+## Parciales
++ Haskell
+  + [Compilación 2023-2024](https://github.com/agustinacf/RepasoPrimerParcialIP.git)
+  + [Primer parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/PrimerParcialIP.git)
+
++ Python
+  + [Compilación 2023-2024](https://github.com/agustinacf/RepasoSegundoParcialIP.git)
+  + [Segundo parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/SegundoParcialIP.git)
