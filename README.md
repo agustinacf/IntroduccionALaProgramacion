@@ -1,8 +1,7 @@
 # Introducción a la Programación
 
 <p align="center">
-  <img src="(https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/adae9583-5808-40f1-a5e1-54953cd374a3)
-" align="center">
+  <img src="https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/adae9583-5808-40f1-a5e1-54953cd374a3" align="center">
 </p>
 
 _**¡¡Importante!!**_
