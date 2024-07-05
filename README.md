@@ -1,11 +1,11 @@
-# Introducción a la Programación
+### Introducción a la Programación
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
 Pueden haber ejercicios faltantes.
 
 Que tengan buena cursada :)
 
-# Prácticas
+## Prácticas
 
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
