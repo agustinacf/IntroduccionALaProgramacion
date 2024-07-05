@@ -2,7 +2,7 @@
 
 <h1 align="center"> ![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
 
-_**¡¡Importante!!**_
+<h2 align="right"> _**¡¡Importante!!**_
 
 _**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
 Pueden encontrarlas en este repositorio resueltas.**_
@@ -14,8 +14,6 @@ Pueden haber ejercicios faltantes.
 Que tengan buena cursada :love_letter:
 
 ## Prácticas
-
-<h2 align="center">
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
 | [Practica 3](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/17a09a6f4447814807467533e21264f00112672d/Practica3) | Introducción a Haskell                     | Haskell  |
