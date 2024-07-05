@@ -21,6 +21,7 @@ Que tengan buena cursada :love_letter:
 
 ## Prácticas
 <p align="center">
+
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
 | [Practica 3](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/17a09a6f4447814807467533e21264f00112672d/Practica3) | Introducción a Haskell                     | Haskell  |
