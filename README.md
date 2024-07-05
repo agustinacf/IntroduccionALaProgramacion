@@ -1,15 +1,15 @@
 # Introducción a la Programación
 
 <p align="center">
-  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="600">
+  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="450">
 </p>
 
 ##
 
-_**¡¡Importante!!**_
+<table><tr><td>_**¡¡Importante!!**_<table><tr><td>
 
-_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
-Pueden encontrarlas en este repositorio resueltas.**_
+<table><tr><td>_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
+Pueden encontrarlas en este repositorio resueltas.**_<table><tr><td>
 
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
