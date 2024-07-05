@@ -1,11 +1,19 @@
 # Introducción a la Programación
+
+![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
+
+_**¡¡Importante!!**_
+
+_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
+Pueden encontrarlas en este repositorio resueltas.**_
+
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
 Pueden haber ejercicios faltantes.
 
-Que tengan buena cursada :)
+Que tengan buena cursada :love_letter:
 
-# Prácticas
+## Prácticas
 
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
