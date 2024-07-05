@@ -6,6 +6,7 @@
 
 ##
 
+<p align="center">
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
 Pueden haber ejercicios faltantes.
@@ -16,8 +17,10 @@ Que tengan buena cursada :love_letter:
 >
 >**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
 >Pueden encontrarlas en este repositorio resueltas.**
+</p>
 
 ## Prácticas
+<p align="center">
 |                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
 | [Practica 3](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/17a09a6f4447814807467533e21264f00112672d/Practica3) | Introducción a Haskell                     | Haskell  |
@@ -26,3 +29,4 @@ Que tengan buena cursada :love_letter:
 | [Practica 6](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica6) | Introducción a Lenguaje Imperativo         | Python   | 
 | [Practica 7](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica7) | Funciones sobre listas (tipos complejos)   | Python   |
 | [Practica 8](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/1ace9ca72393a922f1982527cf2a33be5cd53a76/Practica8) | Archivos, Pilas, Colas y Diccionarios      | Python   |
+</p>
