@@ -2,7 +2,7 @@
 
 <h1 align="center"> ![c1VKAm](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/bbf92b86-a069-4210-80b0-0ef3e047d32d)
 
-<h2 align="right"> _**¡¡Importante!!**_
+<h2 align="left"> _**¡¡Importante!!**_
 
 _**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
 Pueden encontrarlas en este repositorio resueltas.**_
