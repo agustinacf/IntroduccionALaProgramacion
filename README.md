@@ -1,4 +1,4 @@
-### Introducción a la Programación
+# Introducción a la Programación
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
 Pueden haber ejercicios faltantes.
