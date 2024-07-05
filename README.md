@@ -15,7 +15,7 @@ Que tengan buena cursada :love_letter:
 
 ## Prácticas
 
-|                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
+<h1 align="center">|                                                         Práctica                                                                |                  Nombre                    | Lenguaje |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------| ---------|
 | [Practica 3](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/17a09a6f4447814807467533e21264f00112672d/Practica3) | Introducción a Haskell                     | Haskell  |
 | [Practica 4](https://github.com/agustinacf/IntroduccionALaProgramacion/tree/53ba406cd6e7e65b6a82c2330241f0c8190be480/Practica4) | Recursión sobre números enteros            | Haskell  |
