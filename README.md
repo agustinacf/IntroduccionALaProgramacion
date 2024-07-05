@@ -3,7 +3,7 @@ Tomarlo como ayuda, siempre revisar los ejercicios.
 
 Pueden haber ejercicios faltantes.
 
-Que tengan buena cursada :)
+Que tengan buena cursada :love_letter:
 
 ## Prácticas
 
