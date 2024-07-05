@@ -8,8 +8,8 @@
 
 <table><tr><td>_**¡¡Importante!!**_<table><tr><td>
 
-<table><tr><td>_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
-Pueden encontrarlas en este repositorio resueltas.**_<table><tr><td>
+<table><tr><td>_**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.<table><tr><td>
+<table><tr><td>Pueden encontrarlas en este repositorio resueltas.**_<table><tr><td>
 
 Tomarlo como ayuda, siempre revisar los ejercicios.
 
