@@ -1,8 +1,8 @@
 # Introducción a la Programación
 
 **Importante**
-**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
 
+**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
 Pueden encontrarlas en este repositorio resueltas.**
 
 Tomarlo como ayuda, siempre revisar los ejercicios.
