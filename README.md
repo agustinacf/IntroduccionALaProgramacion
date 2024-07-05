@@ -1,9 +1,8 @@
 # Introducción a la Programación
 
 <p align="center">
-  <img src=["https://picsum.photos/460/300"](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/adae9583-5808-40f1-a5e1-54953cd374a3)>
+  <img src="https://makeagif.com/gif/the-office-random-funny-moments-part-1-c1VKAm" align="center">
 </p>
-![image](https://github.com/agustinacf/IntroduccionALaProgramacion/assets/164769372/adae9583-5808-40f1-a5e1-54953cd374a3 | align="center")
 
 _**¡¡Importante!!**_
 
