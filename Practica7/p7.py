@@ -505,8 +505,111 @@ m3 = [[1,2,3],
 print(transponer(m3))
 
 # 6)
-def quien_gana_tateti(m: list[str]) -> int:
+# hago una funcion auxiliar que me diga si en alguna de las filas hay tres letras iguales consecutivas de forma horizontal
+def alineados_en_fila(m: list[list[str]], letra: str) -> bool:
+    for fila in m:
+        contador: int = 0
+        indice: int = 0
+        indice_siguiente: int = 1
+        while indice_siguiente < len(fila):
+            elemento: str = fila[indice]
+            if elemento == letra and fila[indice_siguiente] == letra:
+                contador += 1
+                if contador == 2:
+                    return True
+                else:
+                    indice += 1
+                    indice_siguiente += 1
+            else:
+                indice += 1
+                indice_siguiente +=1
+    return False
+
+m1 = [['c','c','c'],
+      ['b','c','d']]
+print(alineados_en_fila(m1, 'c'))
+m2 = [['c','h','c'],
+      ['b','c','d']]
+print(alineados_en_fila(m2, 'c'))
+
+# hago una funcion auxiliar similar a columna que me diga si hay tres letras iguales consecutivas en forma vertical
+def letras_verticales(s: list[list[str]], letra: str) -> bool:
+    res: list[int] = []
     
+    for fila in s:
+        for i in range(len(fila)):
+            if fila[i] == letra:
+                res.append(i)
+    
+    if len(res) == 3:
+        return True
+    else:
+        return False
+    
+m1 = [['x','h','l'],
+      ['x','n','z'],
+      ['x','o','y']]
+print(letras_verticales(m1,'x'))
+m2 = [['x','h','l'],
+      ['o','n','z'],
+      ['x','o','y']]
+print(letras_verticales(m2,'x'))
+m3 = [['u','h','l'],
+      ['v','n','z'],
+      ['z','o','y']]
+print(letras_verticales(m3,'x')) 
+
+# hago una funcion auxiliar que me diga si hay tres letras iguales en forma diagonal
+def diagonales(s: list[list[int]], letra: str) -> bool:
+    res: list[int] = []
+
+    for fila in s:
+        for i in range(len(fila)):
+            if fila[i] == letra:
+                res.append(i)
+    
+    contador: int = 0
+    indice: int = 0
+    indice_mayor: int = 1
+    while indice_mayor < len(res):
+        if res[indice] + 1 == res[indice_mayor] or res[indice] - 1 == res[indice_mayor]:
+            contador += 1
+            indice += 1
+            indice_mayor += 1
+            if contador == 2:
+                return True
+        else:
+            return False
+
+m1 = [['x','o','l'],
+      ['u','x','n'],
+      ['q','w','x']]
+print(diagonales(m1,'x'))
+m2 = [['x','o','l'],
+      ['u','z','n'],
+      ['q','w','x']]
+print(diagonales(m2,'x'))
+m3 = [['t','o','x'],
+      ['u','x','n'],
+      ['x','w','l']]
+print(diagonales(m3,'x'))
+
+def quien_gana_tateti(m: list[str]) -> int:
+    if alineados_en_fila(m, 'O') or letras_verticales(m, 'O') or diagonales(m, 'O'):
+        return 0
+    elif alineados_en_fila(m, 'X') or letras_verticales(m, 'X') or diagonales(m, 'X'):
+        return 1
+    else:
+        return 2
+    
+t1 = [['O','','X'],
+      ['O','',''],
+      ['O','X','']] #0
+print(quien_gana_tateti(t1))
+t2 = [['O','','X'],
+      ['','X',''],
+      ['X','','']] #1
+print(quien_gana_tateti(t2))
 
 # EJERCICIO 7
 # 1)
