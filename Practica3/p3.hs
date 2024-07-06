@@ -137,9 +137,9 @@ sumarSoloMultiplos (a, b, c) d
 
 --f)
 posPrimerPar :: (Integer, Integer, Integer) -> Integer
-posPrimerPar (x, y, z) | mod x 2 == 0 = 1
-                       | mod y 2 == 0 = 2
-                       | mod z 2 == 0 = 3
+posPrimerPar (x, y, z) | mod x 2 == 0 = 0
+                       | mod y 2 == 0 = 1
+                       | mod z 2 == 0 = 2
                        | otherwise = 4
 
 --g)
