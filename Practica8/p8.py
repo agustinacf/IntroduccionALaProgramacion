@@ -3,101 +3,8 @@ from queue import LifoQueue as Pila
 from queue import Queue as Cola
 import random
 
-# ARCHIVOS
-# EJERCICIO 1
-# 1)
-def contar_lineas(nombre_archivo:str) -> int:   # el parámetro que recibe es el nombre del archivo
-    arch = open(nombre_archivo, "r")   # primero hay que abrir el archivo
-  # tmb se puede poner arch: typing.IO = open(nombre_archivo,"r"), declara el tipo de dato del archivo (IO) 
-    cant_lineas: int
-    lineas: list[str] = arch.readlines()
-    cant_lineas = len(lineas)
-    arch.close()   # debo cerrar el archivo y despues poner el return 
-    return cant_lineas
-
-# una forma de abrir el archivo
-# archivitouwu = "/home/Estudiante/Escritorio/Practica8/archivitouwu"  # "copiar ruta de acceso"
-# print(contar_lineas(archivitouwu))
-# otra forma de abrir el archivo    
-
-# 2)
-def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
-    archivo: typing.IO = open(nombre_archivo, "r")
-    lineas: list[str] = archivo.readlines()
-
-    for linea in lineas:
-        if linea.count(palabra) >= 1:
-            return True
-    return False
-    arc.close()
-
-# 3)
-def cantidad_de_apariciones(nombre_archivo: str, palabra: str) -> int:
-    archivo: typing.IO = open(nombre_archivo, "r")
-    lineas: list[str] = archivo.readlines()
-    apariciones: int = 0
-
-    for linea in lineas:
-        apariciones += linea.count(palabra)
-    archivo.close()
-    return apariciones
-
-# EJERCICIO 2
-def es_comentario(linea: str)-> bool:
-    i: int = 0 
-
-    while (i < len(linea) and linea[i] == ' '):   # i < len(linea) es por si hay una linea con todos blancos, se puede indefinir sino
-        i += 1
-    return i < len(linea) and linea[i] == '#'  # va a ser true si la linea cumple con todo esto
-
-print(es_comentario("#hla"))
-print(es_comentario("     #ajkfhas"))
-print(es_comentario("hola"))
-
-def clonar_sin_comentarios(nombre_archivo: str) -> None:
-    arch: typing.IO = open(nombre_archivo,"r")
-    arch_clonado: typing.IO = open("clonado.txt","w")   # si hago open(nombre_archivo,"w") y nombre_archivo no existe, se crea uno nuevo
-    lineas: list[str] = arch.readlines()
-
-    for linea in lineas:
-        if (not es_comentario(linea)):
-            arch_clonado.write(linea)
-    arch.close()
-    arch_clonado.close()
-
-# EJERCICIO 3
-def invertir_lineas(nombre_archivo: str) -> None:
-    archivo: typing.IO = open(nombre_archivo, "r")
-    archivo_clonado: typing.IO = open("reverso.txt", "w")
-    lineas: list[str] = archivo.readlines()
-
-    for i in range(-1, -(len(lineas)) - 1, -1):
-        archivo_clonado.writelines(lineas[i] + "\n")
-    archivo.close()
-    archivo_clonado.close()
-
-print(invertir_lineas("archivitoejtres.txt"))
-
-# EJERCICIO 4
-def implementar_frase_al_final(nombre_archivo: str, frase: str) -> None:
-    archivo: typing.IO = open(nombre_archivo, "a")
-
-    archivo.write("\n" + frase)
-    archivo.close()
-
-# EJERCICIO 5
-def agregar_frase_al_principio(nombre_archivo: str, frase: str) -> None:
-    archivo: typing.IO = open(nombre_archivo, "r")
-    lineas: list[str] = [frase + "\n"] + archivo.readlines()
-    archivo.close()
-    archivo: typing.IO = open(nombre_archivo, "w")
-
-    for linea in lineas:
-        archivo.write(linea)
-    archivo.close()
-
 # PILAS
-# EJERCICIO 8
+# EJERCICIO 1
 def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
     p: Pila = Pila()  # creo una pila vacia
 
@@ -109,7 +16,7 @@ def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
 p = generar_nros_al_azar(3, 1, 10)
 print(p.queue)   # la funcion queue devuelve los elementos de la pila como si fuese una lista
 
-# EJERCICIO 9
+# EJERCICIO 2
 def cantidad_elementos(p: Pila) -> int:
     cantidad: int = 0
     pila_clonada: Pila = Pila()
@@ -138,7 +45,7 @@ print(m.queue)
 print(cantidad_elementos(m))
 print(m.queue)
 
-# EJERCICIO 10
+# EJERCICIO 3 
 def buscar_el_maximo(p: Pila[int]) -> int:
     pila_copiada: Pila = Pila()
     max: int = p.get()
@@ -160,7 +67,41 @@ print(p.queue)
 print(buscar_el_maximo(p))
 print(p.queue)
 
-# EJERCICIO 12
+# EJERCICIO 4
+def buscar_nota_maxima(p: Pila[tuple[str, int]]) -> tuple[str, int]:
+    pila_copiada: Pila = Pila()
+    maximo = p.get()
+    pila_copiada.put(maximo)
+
+    while not p.empty():
+        elemento = p.get()
+        pila_copiada.put(elemento)
+        if elemento[1] > maximo[1]:
+            maximo = elemento
+    
+    while not pila_copiada.empty():
+        elemento = pila_copiada.get()
+        p.put(elemento)
+
+    return maximo
+
+p = Pila()
+p.put(("juan", 5))
+p.put(("ale", 4))
+p.put(("nico", 9))
+print(p.queue)
+print(buscar_nota_maxima(p))
+print(p.queue)
+p2 = Pila()
+p2.put(("juan", 5))
+p2.put(("ale", 4))
+p2.put(("nico", 9))
+p2.put(("jorge", 1))
+print(p2.queue)
+print(buscar_nota_maxima(p2))
+print(p2.queue)
+
+# EJERCICIO 6
 def evaluar_expresion(expresion: str) -> float:
     tokens = expresion.split(" ")
     operadores: Pila = Pila()
@@ -186,8 +127,31 @@ print(evaluar_expresion(expresion))
 expresion2 = "10 2 + 3 / 2 - 3 +"
 print(evaluar_expresion(expresion2))
 
-# COLAS 
-# EJERCICIO 13
+# EJERCICIO 7
+def intercalar(p1: Pila, p2: Pila) -> Pila:
+    pila_res: Pila = Pila()
+
+    while not p1.empty() and not p2.empty():
+        elemento1 = p1.get()
+        elemento2 = p2.get()
+        pila_res.put(elemento1)
+        pila_res.put(elemento2)
+    return pila_res.queue
+
+p1 = Cola()
+p1.put("hola")
+p1.put("estas")
+p1.put("re")
+print(p1.queue)
+p2 = Cola()
+p2.put("como")
+p2.put("yo")
+p2.put("bien")
+print(p2.queue)
+print(intercalar(p1,p2))
+
+# COLAS
+# EJERCICIO 8
 def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Cola[int]:
     c = Cola()  # creo una Cola vacia
 
@@ -199,7 +163,7 @@ def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Cola[int]:
 c = generar_nros_al_azar(4, 1, 200)
 print(c.queue)
 
-# EJERCICIO 14
+# EJERCICIO 9
 def cantidad_elementos(c: Cola) -> int:
     cantidad: int = 0
     cola_clonada: Cola = Cola()
@@ -224,7 +188,7 @@ print(c.queue)
 print(cantidad_elementos(c))
 print(c.queue)
 
-# EJERCICIO 15
+# EJERCICIO 10
 def buscar_el_maximo(c: Cola[int]) -> int:
     max: int = c.get()
     elem: int
@@ -248,7 +212,64 @@ print(c.queue)
 print(buscar_el_maximo(c))
 print(c.queue)
 
-# EJERCICIO 16
+# EJERCICIO 11
+def buscar_nota_minima(c: Cola[tuple[str, int]]) -> tuple[str, int]:
+    cola_copiada: Cola = Cola()
+    minimo = c.get()
+    cola_copiada.put(minimo)
+
+    while not c.empty():
+        elemento = c.get()
+        cola_copiada.put(elemento)
+        if elemento[1] < minimo[1]:
+            minimo = elemento
+    
+    while not cola_copiada.empty():
+        elemento = cola_copiada.get()
+        c.put(elemento)
+
+    return minimo
+
+c = Cola()
+c.put(("juan", 5))
+c.put(("ale", 4))
+c.put(("nico", 9))
+print(c.queue)
+print(buscar_nota_minima(c))
+print(c.queue)
+c2 = Cola()
+c2.put(("juan", 5))
+c2.put(("ale", 4))
+c2.put(("nico", 9))
+c2.put(("jorge", 1))
+print(c2.queue)
+print(buscar_nota_minima(c2))
+print(c2.queue)
+
+# EJERCICIO 12
+def intercalar(c1: Cola, c2: Cola) -> Cola:
+    cola_res: Cola = Cola()
+
+    while not c1.empty() and not c2.empty():
+        elemento1 = c1.get()
+        elemento2 = c2.get()
+        cola_res.put(elemento1)
+        cola_res.put(elemento2)
+    return cola_res.queue
+
+c1 = Cola()
+c1.put("hola")
+c1.put("estas")
+c1.put("re")
+print(c1.queue)
+c2 = Cola()
+c2.put("como")
+c2.put("yo")
+c2.put("bien")
+print(c2.queue)
+print(intercalar(c1,c2))
+
+# EJERCICIO 13
 # 1)
 def armar_secuencia_bingo() -> Cola[int]:
     cola: Cola = Cola()   # creo una cola vacia
@@ -300,27 +321,23 @@ def jugar_carton_de_bingo(carton: list[int], bolillero: Cola[int]) -> int:
 
 print(jugar_carton_de_bingo(crear_carton_de_bingo(), armar_secuencia_bingo()))
 
-# EJERCICIO 17
-def n_parcientes_urgentes(c: Cola[(int, str, str)]) -> int:
-    pacientes_urgentes: int = 0
-    cola_copiada: Cola[(int, str, str)] = Cola()
-    cola_copiada_aux: Cola[(int, str, str)] = Cola()
+# EJERCICIO 14
+def n_pacientes_urgentes(c: Cola[tuple[int, str, str]]) -> int:
+    urgentes: list[int] = [1, 2, 3]
+    contador_urgentes: int = 0
+    cola_copiada: Cola = Cola()
 
     while not c.empty():
         paciente = c.get()
         cola_copiada.put(paciente)
-        cola_copiada_aux.put(paciente)
+        if paciente[0] in urgentes:
+            contador_urgentes += 1
     
     while not cola_copiada.empty():
         paciente = cola_copiada.get()
-        if paciente[0] in [1, 2, 3]:
-            pacientes_urgentes += 1
-    
-    while not cola_copiada_aux.empty():
-        paciente = cola_copiada_aux.get()
         c.put(paciente)
-    
-    return pacientes_urgentes
+
+    return contador_urgentes
 
 c: Cola = Cola()
 c.put([1, "Ana", "Traumatologia"])
@@ -330,10 +347,10 @@ c.put([3, "Venture", "General"])
 c.put([10, "Dva", "Cirugia"])
 c.put([1, "Brigitte", "Traumatologia"])
 print(c.queue)
-print(n_parcientes_urgentes(c))
+print(n_pacientes_urgentes(c))
 print(c.queue)
 
-# EJERCICIO 18
+# EJERCICIO 15
 def atencion_a_clientes(c: Cola[(str, int, bool, bool)]) -> Cola[(str, int, bool, bool)]:
     cola_copiada: Cola = Cola()
     cola_copiada_aux: Cola = Cola()
@@ -383,7 +400,7 @@ print(atencion_a_clientes(c))
 print(c.queue)
 
 # DICCIONARIOS
-# EJERCICIO 19
+# EJERCICIO 16
 def agrupar_por_longitud(nombre_archivo: str) -> dict:
     res: dict[int, int] = {}   # creo un diccionario vacio
     archivo = open(nombre_archivo, "r")
@@ -397,7 +414,7 @@ def agrupar_por_longitud(nombre_archivo: str) -> dict:
             res[len(palabra)] += 1
     return res
 
-# EJERCICIO 21
+# EJERCICIO 18
 def cantidad_de_apariciones(nombre_archivo: str) -> dict:
     frecuencia: dict[str, int] = {}   # creo un diccionario vacio
     archivo: typing.IO = open(nombre_archivo, "r")
@@ -424,7 +441,7 @@ def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
             palabra_mas_frecuente = palabra
     return palabra_mas_frecuente
 
-# EJERCICIO 23
+# EJERCICIO 20
 inventario: dict = {}
 inventario_aux: dict = {}
 
@@ -462,4 +479,93 @@ actualizar_stock(inventario, "Camisa", 10)
 valor_total = calcular_valor_inventario(inventario)
 print("Valor total del inventario:", valor_total)
 
+# ARCHIVOS
+# EJERCICIO 21
+# 1)
+def contar_lineas(nombre_archivo:str) -> int:   # el parámetro que recibe es el nombre del archivo
+    arch = open(nombre_archivo, "r")   # primero hay que abrir el archivo
+  # tmb se puede poner arch: typing.IO = open(nombre_archivo,"r"), declara el tipo de dato del archivo (IO) 
+    cant_lineas: int
+    lineas: list[str] = arch.readlines()
+    cant_lineas = len(lineas)
+    arch.close()   # debo cerrar el archivo y despues poner el return 
+    return cant_lineas
 
+# una forma de abrir el archivo
+# archivitouwu = "/home/Estudiante/Escritorio/Practica8/archivitouwu"  # "copiar ruta de acceso"
+# print(contar_lineas(archivitouwu))
+# otra forma de abrir el archivo    
+
+# 2)
+def existe_palabra(palabra: str, nombre_archivo: str) -> bool:
+    archivo: typing.IO = open(nombre_archivo, "r")
+    lineas: list[str] = archivo.readlines()
+
+    for linea in lineas:
+        if linea.count(palabra) >= 1:
+            return True
+    return False
+    arc.close()
+
+# 3)
+def cantidad_de_apariciones(nombre_archivo: str, palabra: str) -> int:
+    archivo: typing.IO = open(nombre_archivo, "r")
+    lineas: list[str] = archivo.readlines()
+    apariciones: int = 0
+
+    for linea in lineas:
+        apariciones += linea.count(palabra)
+    archivo.close()
+    return apariciones
+
+# EJERCICIO 22
+def es_comentario(linea: str)-> bool:
+    i: int = 0 
+
+    while (i < len(linea) and linea[i] == ' '):   # i < len(linea) es por si hay una linea con todos blancos, se puede indefinir sino
+        i += 1
+    return i < len(linea) and linea[i] == '#'  # va a ser true si la linea cumple con todo esto
+
+print(es_comentario("#hla"))
+print(es_comentario("     #ajkfhas"))
+print(es_comentario("hola"))
+
+def clonar_sin_comentarios(nombre_archivo: str) -> None:
+    arch: typing.IO = open(nombre_archivo,"r")
+    arch_clonado: typing.IO = open("clonado.txt","w")   # si hago open(nombre_archivo,"w") y nombre_archivo no existe, se crea uno nuevo
+    lineas: list[str] = arch.readlines()
+
+    for linea in lineas:
+        if (not es_comentario(linea)):
+            arch_clonado.write(linea)
+    arch.close()
+    arch_clonado.close()
+
+# EJERCICIO 23
+def invertir_lineas(nombre_archivo: str) -> None:
+    archivo: typing.IO = open(nombre_archivo, "r")
+    archivo_clonado: typing.IO = open("reverso.txt", "w")
+    lineas: list[str] = archivo.readlines()
+
+    for i in range(-1, -(len(lineas)) - 1, -1):
+        archivo_clonado.writelines(lineas[i] + "\n")
+    archivo.close()
+    archivo_clonado.close()
+
+# EJERCICIO 24
+def implementar_frase_al_final(nombre_archivo: str, frase: str) -> None:
+    archivo: typing.IO = open(nombre_archivo, "a")
+
+    archivo.write("\n" + frase)
+    archivo.close()
+
+# EJERCICIO 25
+def agregar_frase_al_principio(nombre_archivo: str, frase: str) -> None:
+    archivo: typing.IO = open(nombre_archivo, "r")
+    lineas: list[str] = [frase + "\n"] + archivo.readlines()
+    archivo.close()
+    archivo: typing.IO = open(nombre_archivo, "w")
+
+    for linea in lineas:
+        archivo.write(linea)
+    archivo.close()
