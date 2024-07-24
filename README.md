@@ -22,7 +22,7 @@ Que tengan buena cursada :love_letter:
 >Pueden encontrarlas en este repositorio resueltas.**
 </p>
 
-Cualquier duda que tengan pueden mandarla por [acá](https://github.com/agustinacf/IntroduccionALaProgramacion/issues).
+Cualquier duda o contribución pueden mandarla por [acá](https://github.com/agustinacf/IntroduccionALaProgramacion/issues).
 
 ## Prácticas
 
