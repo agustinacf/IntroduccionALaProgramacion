@@ -1,12 +1,6 @@
 # Introducción a la Programación
 
 <p align="center">
-  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="500">
-</p>
-
-##
-
-<p align="center">
 Tomarlo como ayuda, siempre revisar los ejercicios.
 </p>
 <p align="center">
@@ -43,3 +37,11 @@ Cualquier duda o contribución pueden mandarla por [acá](https://github.com/agu
 + Python
   + [Compilación 2023-2024](https://github.com/agustinacf/RepasoSegundoParcialIP.git)
   + [Segundo parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/SegundoParcialIP.git)
+
+##
+
+<p align="center">
+  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="500">
+</p>
+
+##
