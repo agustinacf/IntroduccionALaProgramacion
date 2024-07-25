@@ -1,7 +1,7 @@
 # Introducción a la Programación
 
 <p align="center">
-  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="480">
+  <img src="https://i.makeagif.com/media/4-29-2017/c1VKAm.gif" align="center" width="465">
 </p>
 
 ##
