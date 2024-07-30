@@ -40,8 +40,6 @@ Cualquier duda o contribución pueden mandarla por [acá](https://github.com/agu
 ## Parciales
 + Haskell
   + [Compilación 2023-2024](https://github.com/agustinacf/RepasoPrimerParcialIP.git)
-  + [Primer parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/PrimerParcialIP.git)
 
 + Python
   + [Compilación 2023-2024](https://github.com/agustinacf/RepasoSegundoParcialIP.git)
-  + [Segundo parcial (primer cuatrimestre 2024)](https://github.com/agustinacf/SegundoParcialIP.git)
