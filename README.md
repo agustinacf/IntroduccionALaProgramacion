@@ -18,12 +18,6 @@ Pueden haber ejercicios faltantes.
 Que tengan buena cursada :love_letter:
 </p>
 
->_**¡¡Importante!!**_
->
->**En el segundo cuatrimestre del 2024, las guías 7 y 8 fueron modificadas.
->Pueden encontrarlas en este repositorio resueltas.**
-</p>
-
 Cualquier duda o contribución pueden mandarla por [acá](https://github.com/agustinacf/IntroduccionALaProgramacion/issues).
 
 ## Prácticas
